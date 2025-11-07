@@ -21,7 +21,11 @@ from typing import Dict, List, Any
 import yaml
 
 # Import the real transformation engine
-from transform_engine import FileIndex, SymbolRenamer, APIDriftSimulator, LanguageValidator
+try:
+    from transform_engine import FileIndex, SymbolRenamer, APIDriftSimulator, LanguageValidator
+except ImportError:
+    logger.error("transform_engine module not found. Please ensure transform_engine.py is in the same directory.")
+    sys.exit(1)
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

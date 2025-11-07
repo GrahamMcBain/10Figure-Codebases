@@ -1,4 +1,5 @@
 # Legacy Codebase Performance Benchmark Corpus
+# Test modification for scoring validation
 
 A public, reproducible benchmark for evaluating AI agent performance on legacy codebase tasks. This corpus simulates real-world legacy conditions by combining large open-source repositories and applying synthetic transformations that introduce complexity typical of aging codebases.
 
