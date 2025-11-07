@@ -1,0 +1,306 @@
+# Repository Manifest for Legacy Codebase Benchmark Corpus
+# This file defines the repositories to import and their characteristics
+
+metadata:
+  version: "1.0"
+  target_loc: 10000000  # 10M+ lines of code
+  description: "Curated collection of large open-source repositories for legacy codebase simulation"
+
+# Core repositories (currently implemented)
+core_repos:
+  - name: kubernetes
+    url: https://github.com/kubernetes/kubernetes
+    language: go
+    approximate_loc: 1500000
+    weight: 3
+    branch: main
+    depth: 1
+    license: apache-2.0
+    description: "Container orchestration platform"
+
+  - name: envoy
+    url: https://github.com/envoyproxy/envoy
+    language: cpp
+    approximate_loc: 800000
+    weight: 2
+    branch: main
+    depth: 1
+    license: apache-2.0
+    description: "Service mesh proxy"
+
+  - name: django
+    url: https://github.com/django/django
+    language: python
+    approximate_loc: 300000
+    weight: 2
+    branch: main
+    depth: 1
+    license: bsd-3-clause
+    description: "Web framework"
+
+  - name: tensorflow
+    url: https://github.com/tensorflow/tensorflow
+    language: mixed
+    approximate_loc: 2500000
+    weight: 3
+    branch: master
+    depth: 1
+    license: apache-2.0
+    description: "Machine learning framework"
+
+# Extended repositories for scale (Phase 2)
+extended_repos:
+  # Go repositories
+  - name: etcd
+    url: https://github.com/etcd-io/etcd
+    language: go
+    approximate_loc: 200000
+    weight: 1
+    branch: main
+    depth: 1
+    license: apache-2.0
+
+  - name: prometheus
+    url: https://github.com/prometheus/prometheus
+    language: go
+    approximate_loc: 150000
+    weight: 1
+    branch: main
+    depth: 1
+    license: apache-2.0
+
+  - name: consul
+    url: https://github.com/hashicorp/consul
+    language: go
+    approximate_loc: 400000
+    weight: 2
+    branch: main
+    depth: 1
+    license: mpl-2.0
+
+  - name: vault
+    url: https://github.com/hashicorp/vault
+    language: go
+    approximate_loc: 350000
+    weight: 2
+    branch: main
+    depth: 1
+    license: mpl-2.0
+
+  - name: docker
+    url: https://github.com/moby/moby
+    language: go
+    approximate_loc: 600000
+    weight: 2
+    branch: master
+    depth: 1
+    license: apache-2.0
+
+  - name: containerd
+    url: https://github.com/containerd/containerd
+    language: go
+    approximate_loc: 250000
+    weight: 1
+    branch: main
+    depth: 1
+    license: apache-2.0
+
+  # Python repositories
+  - name: pytorch
+    url: https://github.com/pytorch/pytorch
+    language: python
+    approximate_loc: 1200000
+    weight: 3
+    branch: main
+    depth: 1
+    license: bsd-3-clause
+
+  - name: flask
+    url: https://github.com/pallets/flask
+    language: python
+    approximate_loc: 50000
+    weight: 1
+    branch: main
+    depth: 1
+    license: bsd-3-clause
+
+  - name: requests
+    url: https://github.com/psf/requests
+    language: python
+    approximate_loc: 25000
+    weight: 1
+    branch: main
+    depth: 1
+    license: apache-2.0
+
+  - name: pandas
+    url: https://github.com/pandas-dev/pandas
+    language: python
+    approximate_loc: 800000
+    weight: 2
+    branch: main
+    depth: 1
+    license: bsd-3-clause
+
+  - name: numpy
+    url: https://github.com/numpy/numpy
+    language: python
+    approximate_loc: 400000
+    weight: 2
+    branch: main
+    depth: 1
+    license: bsd-3-clause
+
+  - name: scikit-learn
+    url: https://github.com/scikit-learn/scikit-learn
+    language: python
+    approximate_loc: 300000
+    weight: 2
+    branch: main
+    depth: 1
+    license: bsd-3-clause
+
+  # C++ repositories
+  - name: grpc
+    url: https://github.com/grpc/grpc
+    language: cpp
+    approximate_loc: 600000
+    weight: 2
+    branch: master
+    depth: 1
+    license: apache-2.0
+
+  - name: protobuf
+    url: https://github.com/protocolbuffers/protobuf
+    language: cpp
+    approximate_loc: 300000
+    weight: 2
+    branch: main
+    depth: 1
+    license: bsd-3-clause
+
+  - name: opencv
+    url: https://github.com/opencv/opencv
+    language: cpp
+    approximate_loc: 1000000
+    weight: 3
+    branch: 4.x
+    depth: 1
+    license: apache-2.0
+
+  - name: boost
+    url: https://github.com/boostorg/boost
+    language: cpp
+    approximate_loc: 2000000
+    weight: 3
+    branch: master
+    depth: 1
+    license: bsl-1.0
+
+  # JavaScript/TypeScript repositories  
+  - name: vscode
+    url: https://github.com/microsoft/vscode
+    language: typescript
+    approximate_loc: 800000
+    weight: 2
+    branch: main
+    depth: 1
+    license: mit
+
+  - name: nodejs
+    url: https://github.com/nodejs/node
+    language: javascript
+    approximate_loc: 1200000
+    weight: 3
+    branch: main
+    depth: 1
+    license: mit
+
+  - name: react
+    url: https://github.com/facebook/react
+    language: javascript
+    approximate_loc: 200000
+    weight: 2
+    branch: main
+    depth: 1
+    license: mit
+
+# XL repositories for extreme scale testing (Phase 4)
+xl_repos:
+  - name: linux
+    url: https://github.com/torvalds/linux
+    language: c
+    approximate_loc: 20000000
+    weight: 10
+    branch: master
+    depth: 1
+    license: gpl-2.0
+    notes: "Linux kernel - extreme scale test"
+
+  - name: chromium
+    url: https://chromium.googlesource.com/chromium/src
+    language: cpp
+    approximate_loc: 15000000
+    weight: 8
+    branch: main
+    depth: 1
+    license: bsd-3-clause
+    notes: "Chromium browser - very large C++ codebase"
+
+  - name: llvm
+    url: https://github.com/llvm/llvm-project
+    language: cpp
+    approximate_loc: 10000000
+    weight: 6
+    branch: main
+    depth: 1
+    license: apache-2.0
+    notes: "LLVM compiler infrastructure"
+
+# Transform configuration
+transforms:
+  file_rename_percentage: 0.08  # 8% of files
+  symbol_rename_percentage: 0.05  # 5% of symbols
+  api_drift_functions: 10  # per repository
+  wrapper_layers: 8  # functions to wrap per repo
+  duplication_directories: 2  # dirs to duplicate per repo
+
+# Build configuration
+build:
+  parallel_jobs: 8
+  timeout_minutes: 30
+  cache_enabled: true
+  cache_compression: zstd
+  
+# Language support
+languages:
+  go:
+    validator: "go build ./..."
+    parser: "go/parser"
+    
+  python:
+    validator: "python -m py_compile"
+    parser: "ast"
+    
+  cpp:
+    validator: "clang -fsyntax-only"
+    parser: "libclang"
+    
+  javascript:
+    validator: "node --check"
+    parser: "babel"
+    
+  typescript:
+    validator: "tsc --noEmit"
+    parser: "typescript"
+
+# Exclusions (directories to skip during transforms)
+exclusions:
+  - "vendor/"
+  - "node_modules/"
+  - "third_party/"
+  - ".git/"
+  - "test/"
+  - "tests/"
+  - "*.pb.go"
+  - "generated/"

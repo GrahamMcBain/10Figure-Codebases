@@ -1,0 +1,136 @@
+name: Legacy Codebase Benchmark CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  PYTHONHASHSEED: 0  # Deterministic Python execution
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11"]
+        shard: [1, 2, 3, 4]  # Parallel sharding for large repos
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+    
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y clang libclang-dev
+    
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cache/pip
+          ~/.cache/go-build
+        key: ${{ runner.os }}-deps-${{ hashFiles('**/requirements.txt') }}
+    
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Cache corpus
+      uses: actions/cache@v3
+      with:
+        path: |
+          src/
+          transforms/
+        key: corpus-${{ hashFiles('repos.yaml') }}-${{ matrix.shard }}
+    
+    - name: Run linting
+      if: matrix.shard == 1  # Only run once
+      run: |
+        black --check scripts/
+        ruff check scripts/
+        mypy scripts/ --ignore-missing-imports
+    
+    - name: Run tests
+      run: |
+        pytest tests/ -v
+    
+    - name: Build corpus (shard ${{ matrix.shard }})
+      env:
+        SHARD: ${{ matrix.shard }}/4
+      run: |
+        # Only build small subset in CI to avoid timeout
+        make build-corpus-small
+    
+    - name: Generate tasks
+      if: matrix.shard == 1  # Only run once
+      run: |
+        make generate-tasks
+    
+    - name: Validate sample patch
+      if: matrix.shard == 1
+      run: |
+        # Test with dummy patch
+        echo "--- a/README.md" > test.patch
+        echo "+++ b/README.md" >> test.patch
+        echo "@@ -1,1 +1,2 @@" >> test.patch
+        echo " # Legacy Codebase" >> test.patch
+        echo "+# Test change" >> test.patch
+        make score-patch PATCH=test.patch || true  # Allow failure in CI
+
+  build-full-corpus:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'  # Only on main branch
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+    
+    - name: Build full corpus
+      run: |
+        # Build complete corpus for release
+        make build-corpus
+        make generate-tasks
+    
+    - name: Create corpus archive
+      run: |
+        tar -czf corpus-${{ github.sha }}.tar.gz transforms/ tasks/ scoring/
+    
+    - name: Upload corpus artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: benchmark-corpus
+        path: corpus-${{ github.sha }}.tar.gz
+        retention-days: 30
+
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Build Docker image
+      run: |
+        docker build -t legacy-benchmark:${{ github.sha }} .
+    
+    - name: Test Docker image
+      run: |
+        docker run --rm legacy-benchmark:${{ github.sha }} make help
