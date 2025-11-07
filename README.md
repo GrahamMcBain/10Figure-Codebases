@@ -23,8 +23,23 @@ This benchmark rigorously measures how well AI agents can:
 
 ## Quick Start
 
+### **🎯 For AI Agent Evaluation (Copy-Paste Ready)**
 ```bash
-# Clone and build the corpus (15 min)
+# 1. One-command setup (8 min)
+git clone https://github.com/GrahamMcBain/10Figure-Codebases.git
+cd 10Figure-Codebases
+./quick_demo.sh  # Installs deps + builds corpus + generates tasks
+
+# 2. Give your AI agent the prompt from:
+cat COPY_PASTE_PROMPT.md
+
+# 3. Agent completes tasks and gets real scores
+# (No additional setup required!)
+```
+
+### **🛠 Manual Setup (Full Corpus)**
+```bash
+# Clone and build the full corpus (15 min)
 git clone https://github.com/GrahamMcBain/10Figure-Codebases.git
 cd 10Figure-Codebases
 make install          # Install dependencies
