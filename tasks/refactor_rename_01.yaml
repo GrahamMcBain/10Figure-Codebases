@@ -1,0 +1,10 @@
+task_id: refactor_rename_01
+type: refactor_rename
+symbol_to_rename: ProcessRequest
+new_name: HandleRequest
+goal: Rename function and update all references
+ground_truth: scoring/oracle/expected_refactor_targets.json
+description: Rename a function that appears in multiple files and update all call
+  sites
+max_time_minutes: 15
+difficulty: hard

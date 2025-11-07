@@ -1,0 +1,31 @@
+# Imported source repositories (too large for git)
+src/*/
+
+# Backup directories
+backup_before_patch/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Build artifacts
+*.o
+*.so
+*.dylib
+*.dll

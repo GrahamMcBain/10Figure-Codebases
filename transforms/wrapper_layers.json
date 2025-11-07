@@ -1,0 +1,11 @@
+{
+  "sample_function": {
+    "original_path": "direct_call -> implementation",
+    "wrapped_path": "callsite -> interface -> logging_wrapper -> implementation",
+    "files_involved": [
+      "interface.go",
+      "wrapper.go",
+      "impl.go"
+    ]
+  }
+}

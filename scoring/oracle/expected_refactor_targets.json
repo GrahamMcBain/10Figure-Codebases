@@ -1,0 +1,22 @@
+{
+  "task_id": "refactor_rename_01",
+  "files_to_modify": [
+    "src/kubernetes/pkg/api/handler.go",
+    "src/django/core/views.py",
+    "src/tensorflow/core/framework/processor.h"
+  ],
+  "expected_changes": [
+    {
+      "file": "src/kubernetes/pkg/api/handler.go",
+      "line": 23,
+      "old": "func ProcessRequest(",
+      "new": "func HandleRequest("
+    },
+    {
+      "file": "src/django/core/views.py",
+      "line": 156,
+      "old": "result = ProcessRequest(data)",
+      "new": "result = HandleRequest(data)"
+    }
+  ]
+}

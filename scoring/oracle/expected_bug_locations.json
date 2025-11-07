@@ -1,0 +1,16 @@
+{
+  "task_id": "bug_localization_01",
+  "bug_location": {
+    "file": "src/kubernetes/pkg/api/request_processor.go",
+    "line_range": [
+      156,
+      158
+    ],
+    "root_cause": "Missing null check on headers map before accessing",
+    "fix_description": "Add null check: if headers == nil { headers = make(map[string]string) }"
+  },
+  "related_files": [
+    "src/kubernetes/pkg/api/handler.go",
+    "src/kubernetes/pkg/validation/request_validator.go"
+  ]
+}

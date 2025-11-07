@@ -1,0 +1,9 @@
+task_id: api_upgrade_01
+type: api_upgrade
+description: Upgrade FooMethod v1 calls to v2 API across repository
+old_api: FooMethod(param1, param2)
+new_api: FooMethodV2(param1, param2, options={})
+goal: Update all v1 API calls to use v2 signature
+ground_truth: scoring/oracle/expected_api_migration_results.json
+max_time_minutes: 20
+difficulty: hard

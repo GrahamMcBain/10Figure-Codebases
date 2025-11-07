@@ -1,0 +1,27 @@
+{
+  "total_tasks": 4,
+  "task_types": [
+    "api_upgrade",
+    "refactor_rename",
+    "bug_localization",
+    "cross_file_reasoning"
+  ],
+  "tasks": [
+    {
+      "id": "cross_file_reasoning_01",
+      "type": "cross_file_reasoning"
+    },
+    {
+      "id": "refactor_rename_01",
+      "type": "refactor_rename"
+    },
+    {
+      "id": "api_upgrade_01",
+      "type": "api_upgrade"
+    },
+    {
+      "id": "bug_localization_01",
+      "type": "bug_localization"
+    }
+  ]
+}

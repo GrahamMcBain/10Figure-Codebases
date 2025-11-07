@@ -1,0 +1,9 @@
+task_id: cross_file_reasoning_01
+type: cross_file_reasoning
+start_symbol: FooMethod
+goal: Find implementation and summarize call path
+ground_truth: scoring/oracle/expected_symbol_paths.json
+description: Trace a function call through multiple wrapper layers to find the actual
+  implementation
+max_time_minutes: 10
+difficulty: medium

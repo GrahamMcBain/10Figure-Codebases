@@ -1,0 +1,6 @@
+{
+  "src/kubernetes/pkg": "src/kubernetes/pkg-old",
+  "src/kubernetes/.github": "src/kubernetes/.github-old",
+  "src/django/.github": "src/django/.github-old",
+  "src/django/js_tests": "src/django/js_tests-old"
+}

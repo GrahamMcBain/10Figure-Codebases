@@ -1,0 +1,13 @@
+{
+  "ProcessRequest": {
+    "symbol": "ProcessRequest",
+    "v1_callsites": [
+      "src/kubernetes/pkg/api/handler.go",
+      "src/django/core/views.py"
+    ],
+    "expected_v2_replacements": [
+      "ProcessRequestV2",
+      "ProcessHTTPRequest"
+    ]
+  }
+}

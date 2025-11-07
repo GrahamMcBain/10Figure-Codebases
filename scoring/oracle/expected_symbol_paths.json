@@ -1,0 +1,14 @@
+{
+  "task_id": "cross_file_reasoning_01",
+  "expected_call_path": [
+    "src/kubernetes/pkg/api/handler.go:ProcessRequest",
+    "src/kubernetes/pkg/interfaces/processor.go:IProcessor.Process",
+    "src/kubernetes/pkg/wrappers/logging.go:LoggingWrapper.Process",
+    "src/kubernetes/pkg/impl/processor_impl.go:ProcessorImpl.ProcessInternal"
+  ],
+  "expected_implementation_file": "src/kubernetes/pkg/impl/processor_impl.go",
+  "expected_line_range": [
+    45,
+    67
+  ]
+}

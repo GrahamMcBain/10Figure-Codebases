@@ -1,0 +1,12 @@
+task_id: bug_localization_01
+type: bug_localization
+description: Find the source of a null pointer exception in request processing
+error_message: NullPointerException at RequestProcessor.process()
+symptoms:
+- Server crashes when processing certain API requests
+- Error occurs only with requests containing empty headers
+- Stack trace points to RequestProcessor module
+goal: Identify the exact file and line causing the bug
+ground_truth: scoring/oracle/expected_bug_locations.json
+max_time_minutes: 25
+difficulty: expert

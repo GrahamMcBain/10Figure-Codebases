@@ -1,0 +1,20 @@
+{
+  "task_id": "api_upgrade_01",
+  "total_callsites": 15,
+  "expected_upgrades": 12,
+  "callsites": [
+    {
+      "file": "src/kubernetes/pkg/client/client.go",
+      "line": 89,
+      "needs_upgrade": true,
+      "old_call": "FooMethod(req, ctx)",
+      "new_call": "FooMethodV2(req, ctx, options={})"
+    },
+    {
+      "file": "src/django/utils/helpers.py",
+      "line": 234,
+      "needs_upgrade": false,
+      "reason": "Legacy compatibility required"
+    }
+  ]
+}
