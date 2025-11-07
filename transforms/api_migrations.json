@@ -1,13 +1,82 @@
 {
-  "ProcessRequest": {
-    "symbol": "ProcessRequest",
-    "v1_callsites": [
-      "src/kubernetes/pkg/api/handler.go",
-      "src/django/core/views.py"
-    ],
-    "expected_v2_replacements": [
-      "ProcessRequestV2",
-      "ProcessHTTPRequest"
+  "MoveRSOutofGracefulDeleteList": {
+    "v2_symbol": "MoveRSOutofGracefulDeleteListV2",
+    "definition_file": "src/kubernetes/pkg/proxy/ipvs/graceful_termination.go",
+    "total_callsites": 0,
+    "migrated_callsites": 0,
+    "migrated_files": []
+  },
+  "SparseCoreLayoutsTrackable": {
+    "v2_symbol": "SparseCoreLayoutsTrackableV2",
+    "definition_file": "src/tensorflow/tensorflow/python/tpu/tpu_embedding_v3_utils.py",
+    "total_callsites": 0,
+    "migrated_callsites": 0,
+    "migrated_files": []
+  },
+  "ReconcileEndpoints": {
+    "v2_symbol": "ReconcileEndpointsV2",
+    "definition_file": "src/kubernetes/pkg/controlplane/reconcilers/lease.go",
+    "total_callsites": 2,
+    "migrated_callsites": 1,
+    "migrated_files": [
+      "src/kubernetes/pkg/controlplane/reconcilers/instancecount.go"
     ]
+  },
+  "BoolOr": {
+    "v2_symbol": "BoolOrV2",
+    "definition_file": "src/django/django/contrib/postgres/aggregates/general.py",
+    "total_callsites": 0,
+    "migrated_callsites": 0,
+    "migrated_files": []
+  },
+  "BuildInplaceOpSubgraph": {
+    "v2_symbol": "BuildInplaceOpSubgraphV2",
+    "definition_file": "src/tensorflow/tensorflow/lite/kernels/subgraph_test_util.h",
+    "total_callsites": 0,
+    "migrated_callsites": 0,
+    "migrated_files": []
+  },
+  "WithMinReadySeconds": {
+    "v2_symbol": "WithMinReadySecondsV2",
+    "definition_file": "src/kubernetes/staging/src/k8s.io/client-go/applyconfigurations/extensions/v1beta1/daemonsetspec.go",
+    "total_callsites": 13,
+    "migrated_callsites": 7,
+    "migrated_files": [
+      "src/kubernetes/staging/src/k8s.io/client-go/applyconfigurations/apps/v1beta1/deploymentspec.go",
+      "src/kubernetes/staging/src/k8s.io/client-go/applyconfigurations/apps/v1/statefulsetspec.go",
+      "src/kubernetes/staging/src/k8s.io/client-go/applyconfigurations/apps/v1/daemonsetspec.go",
+      "src/kubernetes/staging/src/k8s.io/client-go/applyconfigurations/apps/v1beta1/statefulsetspec.go",
+      "src/kubernetes/staging/src/k8s.io/client-go/applyconfigurations/core/v1/replicationcontrollerspec.go",
+      "src/kubernetes/staging/src/k8s.io/client-go/applyconfigurations/apps/v1beta2/deploymentspec.go",
+      "src/kubernetes/staging/src/k8s.io/client-go/applyconfigurations/apps/v1/replicasetspec.go"
+    ]
+  },
+  "BaseConstraint": {
+    "v2_symbol": "BaseConstraintV2",
+    "definition_file": "src/django/django/db/models/constraints.py",
+    "total_callsites": 0,
+    "migrated_callsites": 0,
+    "migrated_files": []
+  },
+  "Convert_v1alpha1_Workload_To_scheduling_Workload": {
+    "v2_symbol": "Convert_v1alpha1_Workload_To_scheduling_WorkloadV2",
+    "definition_file": "src/kubernetes/pkg/apis/scheduling/v1alpha1/zz_generated.conversion.go",
+    "total_callsites": 0,
+    "migrated_callsites": 0,
+    "migrated_files": []
+  },
+  "MockPodsProvider_GetPodByName_Call": {
+    "v2_symbol": "MockPodsProvider_GetPodByName_CallV2",
+    "definition_file": "src/kubernetes/pkg/kubelet/apis/podresources/testing/mocks.go",
+    "total_callsites": 0,
+    "migrated_callsites": 0,
+    "migrated_files": []
+  },
+  "ParseQualcommOpenClCompilerVersion": {
+    "v2_symbol": "ParseQualcommOpenClCompilerVersionV2",
+    "definition_file": "src/tensorflow/tensorflow/lite/delegates/gpu/cl/cl_device.h",
+    "total_callsites": 0,
+    "migrated_callsites": 0,
+    "migrated_files": []
   }
 }

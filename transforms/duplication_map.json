@@ -1,6 +1,37 @@
 {
-  "src/kubernetes/pkg": "src/kubernetes/pkg-old",
-  "src/kubernetes/.github": "src/kubernetes/.github-old",
-  "src/django/.github": "src/django/.github-old",
-  "src/django/js_tests": "src/django/js_tests-old"
+  "src/kubernetes/logo": {
+    "duplicate_path": "src/kubernetes/logo_legacy",
+    "modified_files": []
+  },
+  "src/kubernetes/CHANGELOG": {
+    "duplicate_path": "src/kubernetes/CHANGELOG_legacy",
+    "modified_files": []
+  },
+  "src/envoy/configs": {
+    "duplicate_path": "src/envoy/configs_legacy",
+    "modified_files": []
+  },
+  "src/envoy/ci": {
+    "duplicate_path": "src/envoy/ci_legacy",
+    "modified_files": []
+  },
+  "src/django/extras": {
+    "duplicate_path": "src/django/extras_legacy",
+    "modified_files": []
+  },
+  "src/django/js_tests": {
+    "duplicate_path": "src/django/js_tests_legacy",
+    "modified_files": []
+  },
+  "src/tensorflow/tools": {
+    "duplicate_path": "src/tensorflow/tools_legacy",
+    "modified_files": []
+  },
+  "src/tensorflow/ci": {
+    "duplicate_path": "src/tensorflow/ci_legacy",
+    "modified_files": [
+      "src/tensorflow/ci_legacy/official/utilities/convert_msys_paths_to_win_paths.py",
+      "src/tensorflow/ci_legacy/official/utilities/extract_resultstore_links.py"
+    ]
+  }
 }

@@ -1,11 +1,12 @@
 {
-  "sample_function": {
-    "original_path": "direct_call -> implementation",
-    "wrapped_path": "callsite -> interface -> logging_wrapper -> implementation",
-    "files_involved": [
-      "interface.go",
-      "wrapper.go",
-      "impl.go"
-    ]
+  "StorageVersionMigrationSpecApplyConfiguration": {
+    "original_file": "src/kubernetes/staging/src/k8s.io/client-go/applyconfigurations/storagemigration/v1beta1/storageversionmigrationspec.go",
+    "wrapper_file": "src/kubernetes/staging/src/k8s.io/client-go/applyconfigurations/storagemigration/v1beta1/storageversionmigrationspec_wrapper.go",
+    "call_chain": "caller -> src/kubernetes/staging/src/k8s.io/client-go/applyconfigurations/storagemigration/v1beta1/storageversionmigrationspec_wrapper.go -> src/kubernetes/staging/src/k8s.io/client-go/applyconfigurations/storagemigration/v1beta1/storageversionmigrationspec.go"
+  },
+  "autoConvert_v1_NFSVolumeSource_To_core_NFSVolumeSource": {
+    "original_file": "src/kubernetes/pkg/apis/core/v1/zz_generated.conversion.go",
+    "wrapper_file": "src/kubernetes/pkg/apis/core/v1/zz_generated.conversion_wrapper.go",
+    "call_chain": "caller -> src/kubernetes/pkg/apis/core/v1/zz_generated.conversion_wrapper.go -> src/kubernetes/pkg/apis/core/v1/zz_generated.conversion.go"
   }
 }

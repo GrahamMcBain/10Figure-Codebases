@@ -1,0 +1,9 @@
+{
+  "seed": 42,
+  "transforms_applied": {
+    "renames": 5089,
+    "api_migrations": 10,
+    "wrapper_layers": 2,
+    "duplications": 8
+  }
+}
